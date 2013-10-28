@@ -4,7 +4,6 @@ import fr.esiea.fc.control.SessionManager;
 import fr.esiea.fc.model.admin.ActivityDAO;
 import fr.esiea.fc.model.security.TaskDAO;
 import fr.esiea.fc.model.security.User;
-import fr.esiea.fc.model.security.UserDAO;
 import fr.esiea.fc.util.Log;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,13 +46,13 @@ public class AddUserController extends SimpleFormController {
             }
 
             User user = (User) command;
-            if (!UserDAO.add(user)) {
+           /* if (!UserDAO.add(user)) {
                 Log.write("L'utilisateur [" + user.getId() + "] n'a pas pu être ajouté");
 
                 errors.rejectValue("id", "users.add.database", "L'utilisateur n'a pas pu être ajouté");
                 ActivityDAO.insert(SessionManager.getUserID(request), "Echec lors de l'ajout de l'utilisateur " + user.getId(), SessionManager.getIp(request));
                 return this.showForm(request, response, errors);
-            }
+            }*/
             
             ActivityDAO.insert(SessionManager.getUserID(request), "Utilisateur " + user.getId() + " Ajouté", SessionManager.getIp(request));
             return new ModelAndView(getSuccessView(), getCommandName(), user);

@@ -1,6 +1,5 @@
 package fr.esiea.fc.model.admin;
 
-import fr.esiea.fc.model.PoolConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,7 +35,6 @@ public class ActivityDAO {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
-            conn = PoolConnection.getPoolConnection();
             
             ps = conn.prepareStatement("insert into period" + dot_TABLE_NAME
                     + "(" + COLUMNS_WOID + ") values(?,?,?,?,?)");

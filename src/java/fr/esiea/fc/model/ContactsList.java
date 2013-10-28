@@ -5,7 +5,6 @@
 
 package fr.esiea.fc.model;
 
-import fr.esiea.fc.model.Contact;
 import java.util.ArrayList;
 import java.util.Collection;
 

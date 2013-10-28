@@ -61,11 +61,11 @@ public class ModifyUserValidator implements Validator
         "required.confirmationPassword", "Confirmación de contraseña es requerida.");
         */
         // Verificacion de contraseña
-        if(user!=null && user.getPassword()!=null)
+       /* if(user!=null && user.getPassword()!=null)
         {
             if(!(user.getPassword().equals(user.getConfirmationPassword())))
                 errors.rejectValue("password", "notmatch.password", "Contraseñas no concuerdan");
-        }
+        }*/
 
     }
 

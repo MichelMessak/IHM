@@ -33,11 +33,11 @@ public class AddUserValidator implements Validator
         "required.confirmationPassword", "La comfirmation du mot de passe est requis.");
 
         // Verificacion de contraseña
-        if(user!=null && user.getPassword()!=null)
+       /* if(user!=null && user.getPassword()!=null)
         {
             if(!(user.getPassword().equals(user.getConfirmationPassword())))
                 errors.rejectValue("password", "notmatch.password", "Les mots de passe ne concordent pas");
-        }
+        }*/
 
     }
 

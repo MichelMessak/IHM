@@ -1,6 +1,5 @@
 package fr.esiea.fc.model.security;
 
-import fr.esiea.fc.model.PoolConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +27,6 @@ public class TaskDAO {
         ResultSet rs = null;
         try {
             String taskName=null;
-            conn = PoolConnection.getPoolConnection();
             ps = conn.prepareStatement("select " + COLUMNS + " from " + TABLE_NAME + " where " + URL + " = '" + url + "'");
             rs = ps.executeQuery();
 

@@ -1,7 +1,6 @@
 package fr.esiea.fc.control;
 
-import com.itc.fc4.model.ContactsList;
-import fr.esiea.fc.model.PoolConnection;
+import fr.esiea.fc.model.ContactsList;
 import fr.esiea.fc.model.security.TaskDAO;
 import fr.esiea.fc.util.error.DBConnectionNotFound;
 import java.sql.Connection;
@@ -254,7 +253,6 @@ public class Report {
             this.OFFSET = currentPage * this.ROWS_PER_PAGE;
             if (rowCount > 0) {
                 if (conn == null) {
-                    conn = PoolConnection.getPoolConnection();
                     if (conn == null) {
                         throw new DBConnectionNotFound("Aucune connexion disponible");
                     }
@@ -664,7 +662,6 @@ public class Report {
      * @return  Verdadero si la llamada se hizo desde una pantalla de filtrado
      */
     public static boolean isFilterCall(HttpServletRequest request) {
-        System.out.println(request.getParameter("isFilterSubmit"));
         return ("Consult".equals(request.getParameter("isFilterSubmit")) /*&& request.getSession().getAttribute("report")==null*/);
     }
 

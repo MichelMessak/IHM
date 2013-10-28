@@ -2,7 +2,6 @@ package fr.esiea.fc.tasks.security.users.reports;
 
 import fr.esiea.fc.control.Report;
 import fr.esiea.fc.control.SessionManager;
-import fr.esiea.fc.model.PoolConnection;
 import fr.esiea.fc.model.admin.ActivityDAO;
 import fr.esiea.fc.util.error.DBConnectionNotFound;
 import com.itextpdf.text.Document;
@@ -57,7 +56,6 @@ public class ReportPDFController implements Controller {
                         document.add(header);
 
                       try{
-                            conn = PoolConnection.getPoolConnection();
                             if (conn == null) {
                                 throw new DBConnectionNotFound("Aucune connexion disponible");
                             }

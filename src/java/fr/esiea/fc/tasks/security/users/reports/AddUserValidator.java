@@ -50,23 +50,23 @@ public class AddUserValidator implements Validator
         else
         {
             // Verificacion de contraseña
-            if(user!=null && user.getPassword()!=null)
+           /* if(user!=null && user.getPassword()!=null)
             {
                 if(!(user.getPassword().equals(user.getConfirmationPassword())))
                     errors.rejectValue("password", "notmatch.password", "Contraseñas no concuerdan");
             }
-
+*/
         }
        }
         /**
          * Permite dejar la contraseña en blanco. Si es así, no se modifica la contraseña en la base de datos
          * Cuando se especifica una nueva contraseña, se valida que esta sea confirmada.
          */
-        if(user!=null && user.getPassword()!=null && !"".equals(user.getPassword()))
+        /*if(user!=null && user.getPassword()!=null && !"".equals(user.getPassword()))
         {
             if(!(user.getPassword().equals(user.getConfirmationPassword())))
                     errors.rejectValue("password", "notmatch.password", "Contraseñas no concuerdan");
-        }
+        }*/
 
     }
 

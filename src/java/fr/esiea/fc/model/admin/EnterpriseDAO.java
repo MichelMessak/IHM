@@ -3,8 +3,6 @@ package fr.esiea.fc.model.admin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import fr.esiea.fc.model.PoolConnection;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +24,6 @@ public class EnterpriseDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            conn = PoolConnection.getPoolConnection();
             ps = (PreparedStatement) conn.prepareStatement("delete from common.enterprises where emp_id=?");
             ps.setString(1, enterpriseId);
             int ret = ps.executeUpdate();
@@ -53,7 +50,6 @@ public class EnterpriseDAO {
         Statement st = null;
         ResultSet rs = null;
         try {
-            conn = PoolConnection.getPoolConnection();
             String query = "update common.enterprises set ";
             String set = "";
 
@@ -107,7 +103,6 @@ public class EnterpriseDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            conn = PoolConnection.getPoolConnection();
             rs = conn.createStatement().executeQuery("select count(*) from common.enterprises"
                     + " where emp_id = '" + enterprise.getId() + "'");
             if (rs.next() && rs.getInt(1) != 0) {
@@ -142,7 +137,6 @@ public class EnterpriseDAO {
         Statement st = null;
         ResultSet rs = null;
         try {
-            conn = PoolConnection.getPoolConnection();
             st = conn.createStatement();
 
             String query = "select distinct E.emp_id, E.emp_name from common.enterprises E "

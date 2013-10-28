@@ -17,7 +17,6 @@ public class FileControlContextListener implements ServletContextListener
     public void contextInitialized(ServletContextEvent sce)
     {
         Log.write("File Control initialisé");
-        PoolConnection.createPool();
         notificationMail=new NotifMailCorrectError();
         notificationMail.contextInitialized(sce);
     }
@@ -26,7 +25,6 @@ public class FileControlContextListener implements ServletContextListener
     public void contextDestroyed(ServletContextEvent sce)
     {
         Log.write("File Control éteint");
-        PoolConnection.destroyPool();
         if(notificationMail!=null)
             notificationMail.contextDestroyed(sce);
             notificationMail=null;

@@ -21,11 +21,11 @@ public class ChangePasswordUserValidator implements Validator
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmationPassword",
                 "required.confirmationPassword", "Comfirmation du mot de passe requise");
 
-        if(user!=null && user.getPassword()!=null)
+       /* if(user!=null && user.getPassword()!=null)
         {
             if(!(user.getPassword().equals(user.getConfirmationPassword())))
                     errors.rejectValue("password", "notmatch.password", "Les mots de passes ne concordent pas");
-        }
+        }*/
 
     }
 

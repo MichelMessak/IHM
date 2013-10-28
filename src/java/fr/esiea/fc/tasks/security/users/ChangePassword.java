@@ -3,7 +3,6 @@ package fr.esiea.fc.tasks.security.users;
 import fr.esiea.fc.control.SessionManager;
 import fr.esiea.fc.model.admin.ActivityDAO;
 import fr.esiea.fc.model.security.User;
-import fr.esiea.fc.model.security.UserDAO;
 import fr.esiea.fc.util.Log;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,7 +52,7 @@ public class ChangePassword extends SimpleFormController {
             }
            
             User user = (User) command;
-            user.setReset_password(false);
+            /*user.setReset_password(false);
 
             if (!UserDAO.changePassword(user)) {
                 Log.write("L'utilisateur [" + user.getId() + "] n'a pas pu être actualisé");
@@ -61,9 +60,8 @@ public class ChangePassword extends SimpleFormController {
                 errors.rejectValue("password", "users.modify.database", "Le mot de passe de l'utilisateur n'a pas pu être modifié");
                 ActivityDAO.insert(user.getId(), "Echec lors de la modification du mot de passe de l'utilisateur " + user.getId(), userIp);
                 return this.showForm(request, response, errors);
-            }
+            }*/
            
-            ActivityDAO.insert(user.getId(), "Mot de passe de l'utilisateur " + user.getId() + " actualisé", userIp);
             RedirectView view=new RedirectView("home.do");
             
             ModelAndView mv=new ModelAndView(view);

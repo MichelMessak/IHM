@@ -4,7 +4,6 @@ import fr.esiea.fc.control.SessionManager;
 import fr.esiea.fc.model.admin.ActivityDAO;
 import fr.esiea.fc.model.security.TaskDAO;
 import fr.esiea.fc.model.security.User;
-import fr.esiea.fc.model.security.UserDAO;
 import fr.esiea.fc.util.Log;
 import java.util.HashMap;
 import java.util.List;
@@ -64,7 +63,7 @@ public class ModifyUserController extends SimpleFormController {
                 return SessionManager.getLoginView(request);
             }
 
-            User user = (User) command;
+            /*User user = (User) command;
 
             UserDAO dao = new UserDAO();
             if (!dao.modify(user)) {
@@ -77,7 +76,7 @@ public class ModifyUserController extends SimpleFormController {
           
 
             ActivityDAO.insert(SessionManager.getUserID(request), "Usuario " + user.getId() + " modificado", SessionManager.getIp(request));
-            return new ModelAndView(getSuccessView(), getCommandName(), user);
+           */ return new ModelAndView(getSuccessView(), getCommandName(), null);
         } catch (Exception ex) {
             Log.write(ex);
             errors.rejectValue("id", "users.update.database", ex.getMessage());
@@ -111,8 +110,8 @@ public class ModifyUserController extends SimpleFormController {
 
 		Map referenceData = new HashMap();
 
-		List<String> statuses = UserDAO.getAllStatus();
-		referenceData.put("statuses", statuses);
+		//List<String> statuses = UserDAO.getAllStatus();
+		//referenceData.put("statuses", statuses);
 //                referenceData.put("status",request.getParameter("user_status"));
 //                referenceData.put("reset_password",request.getParameter("reset_password"));
 

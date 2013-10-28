@@ -4,7 +4,6 @@ import fr.esiea.fc.control.SessionManager;
 import fr.esiea.fc.model.admin.ActivityDAO;
 import fr.esiea.fc.model.security.TaskDAO;
 import fr.esiea.fc.model.security.User;
-import fr.esiea.fc.model.security.UserDAO;
 import fr.esiea.fc.util.Log;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -62,7 +61,7 @@ public class DeleteUserController extends SimpleFormController {
                 return SessionManager.getLoginView(request);
             }
 
-            User user = (User) command;
+           /* User user = (User) command;
 
             UserDAO dao = new UserDAO();
             if (!dao.delete(user.getId())) {
@@ -73,7 +72,7 @@ public class DeleteUserController extends SimpleFormController {
                 return this.showForm(request, response, errors);
             }
             ActivityDAO.insert(SessionManager.getUserID(request), "Usuario " + user.getId() + " eliminado", SessionManager.getIp(request));
-            return new ModelAndView(getSuccessView(), getCommandName(), user);
+           */ return new ModelAndView(getSuccessView(), getCommandName(), null);
         } catch (Exception ex) {
             Log.write(ex);
             errors.rejectValue("id", "users.delete.database", "El Usuario no se puede borar.");

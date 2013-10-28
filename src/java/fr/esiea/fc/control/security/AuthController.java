@@ -1,10 +1,10 @@
 package fr.esiea.fc.control.security;
 
-import com.itc.fc4.model.ContactsList;
+import fr.esiea.fc.model.ContactsList;
 import fr.esiea.fc.control.SessionManager;
 import fr.esiea.fc.model.admin.ActivityDAO;
 import fr.esiea.fc.model.security.User;
-import fr.esiea.fc.model.security.UserDAO;
+
 import fr.esiea.fc.util.Log;
 import com.itc.repository.fc4Repository;
 import fr.esiea.fc.model.Contact;
@@ -25,7 +25,7 @@ public class AuthController implements Controller {
     ContactsList contactList = ContactsList.getInstance();
 
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        try {
+       /* try {
             
             String user_id = (String) request.getParameter("user_id");
             String user_pwd = (String) request.getParameter("user_pwd");
@@ -116,7 +116,7 @@ public class AuthController implements Controller {
                     session = request.getSession(true);
                     session.setAttribute("user_id", user_id);
                     String user_name = user.getName();
-                    session.setAttribute("user_name", user_name);
+                    session.setAttribute("user_name", user_name);*/
 
                     contactList.addContact(new Contact("Messak", "Michel", "michel.messak@gmail.com", new Date (1991, 06, 10), true));
                      contactList.addContact(new Contact("Messak", "Michel", "michel.messak@gmail.com", new Date (1991, 06, 10), true));
@@ -128,7 +128,7 @@ public class AuthController implements Controller {
                     mv.addObject("isFilterSubmit", "Consult");
 
                     return mv;
-                } else {
+                } /*else {
                     session = request.getSession(false);
                     lastUserAttempt = 0;
                     if (session != null) {
@@ -149,6 +149,6 @@ public class AuthController implements Controller {
             return mv;
         }
 
-    }
+    }*/
     
 }

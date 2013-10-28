@@ -1,7 +1,6 @@
 package fr.esiea.fc.tasks.security.users.add;
 
 import fr.esiea.fc.model.security.User;
-import fr.esiea.fc.model.security.UserDAO;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.validation.Errors;
@@ -20,7 +19,7 @@ public class ChangePasswordValidator implements Validator
     public void validate(Object target, Errors errors)
     {        
       
-        try {
+       /* try {
             User user = (User)target;
 
             User verUser = UserDAO.Authenticate(user.getId(), user.getPassword_actual());
@@ -45,7 +44,7 @@ public class ChangePasswordValidator implements Validator
             }
         } catch (Exception ex) {
             Logger.getLogger(ChangePasswordValidator.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
    }
 
     public boolean supports(Class type)

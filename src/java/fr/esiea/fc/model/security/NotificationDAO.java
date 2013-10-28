@@ -1,6 +1,5 @@
 package fr.esiea.fc.model.security;
 
-import fr.esiea.fc.model.PoolConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +27,6 @@ public class NotificationDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            conn = PoolConnection.getPoolConnection();
 
             String query = "SELECT " + AS_User + "." + USER + " ,"
                     + EMP_ID + " , " + AS_User + "." + EMAIL +
@@ -67,7 +65,6 @@ public class NotificationDAO {
                 notification.setUser(rs.getString(USER));
                 notification.setEnterpriseID(rs.getString(EMP_ID));
                 notification.setEmail(rs.getString(EMAIL));
-                conn = PoolConnection.getPoolConnection();
                 
                 String docErrors = "select count(*) AS errores from period.documents"
                         + " where emp_id = '" + notification.getEnterpriseID() + "'"

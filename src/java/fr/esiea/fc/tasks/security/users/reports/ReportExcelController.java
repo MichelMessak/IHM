@@ -2,7 +2,6 @@ package fr.esiea.fc.tasks.security.users.reports;
 
 import fr.esiea.fc.control.Report;
 import fr.esiea.fc.control.SessionManager;
-import fr.esiea.fc.model.PoolConnection;
 import fr.esiea.fc.model.admin.ActivityDAO;
 import fr.esiea.fc.util.error.DBConnectionNotFound;
 import java.io.FileNotFoundException;
@@ -60,7 +59,6 @@ public class ReportExcelController implements Controller {
             }
 
                 try {
-                    conn = PoolConnection.getPoolConnection();
                     if (conn == null) {
                         throw new DBConnectionNotFound("Aucune connexion disponible");
                     }
